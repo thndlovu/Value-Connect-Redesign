@@ -150,12 +150,53 @@
           <div class="flex items-center gap-4">
             <!-- Nav -->
             <nav class="flex items-center gap-6">
-              <a
-                href="#about"
-                class="text-sm font-medium decoration-purple-600 decoration-2 underline-offset-8 hover:text-black hover:underline dark:decoration-purple-400 dark:hover:text-white"
-              >
-                About
-              </a>
+              <!-- About Dropdown -->
+              <div class="relative" x-data="{ open: false }" x-on:click.outside="open = false">
+                <button
+                  x-on:click="open = ! open"
+                  type="button"
+                  class="flex items-center gap-1 text-sm font-medium decoration-purple-600 decoration-2 underline-offset-8 hover:text-black hover:underline dark:decoration-purple-400 dark:hover:text-white"
+                >
+                  <span>About</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    class="inline-block size-4 transition-transform duration-150"
+                    x-bind:class="open ? 'rotate-180' : ''"
+                    aria-hidden="true"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6" />
+                  </svg>
+                </button>
+                <div
+                  x-cloak
+                  x-show="open"
+                  x-transition:enter="transition ease-out duration-150"
+                  x-transition:enter-start="opacity-0 -translate-y-1"
+                  x-transition:enter-end="opacity-100 translate-y-0"
+                  x-transition:leave="transition ease-in duration-100"
+                  x-transition:leave-start="opacity-100 translate-y-0"
+                  x-transition:leave-end="opacity-0 -translate-y-1"
+                  class="absolute left-0 z-10 mt-2 w-52 rounded-lg border border-zinc-200 bg-white p-2 shadow-lg dark:border-zinc-800 dark:bg-zinc-900"
+                >
+                  <a
+                    href="#about"
+                    class="block rounded-md px-3 py-2 text-sm text-zinc-700 hover:bg-zinc-100 hover:text-black dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-white"
+                  >
+                    Value Connect
+                  </a>
+                  <a
+                    href="meet-our-founder.html"
+                    class="block rounded-md px-3 py-2 text-sm text-zinc-700 hover:bg-zinc-100 hover:text-black dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-white"
+                  >
+                    Meet Our Founder
+                  </a>
+                </div>
+              </div>
+              <!-- END About Dropdown -->
 
               <!-- Services Dropdown -->
               <div class="relative" x-data="{ open: false }" x-on:click.outside="open = false">
@@ -224,13 +265,38 @@
         <!-- Main Content -->
         <div class="grid grid-cols-1 gap-6 md:grid-cols-12">
           <!-- Photo -->
-          <div class="col-span-1 md:col-span-5">
+          <a
+            href="meet-our-founder.html"
+            class="group relative col-span-1 block overflow-hidden rounded-xl md:col-span-5"
+          >
             <img
               src="assets/photo.jpg"
               alt="Photo"
               class="rounded-xl object-cover w-full aspect-square"
             />
-          </div>
+            <div
+              class="absolute top-6 right-6 scale-0 opacity-0 transition duration-75 ease-out group-hover:scale-100 group-hover:opacity-100"
+              aria-hidden="true"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="hi-solid hi-arrow-small-right inline-block size-6 text-white drop-shadow-lg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3.75 12a.75.75 0 0 1 .75-.75h13.19l-5.47-5.47a.75.75 0 0 1 1.06-1.06l6.75 6.75a.75.75 0 0 1 0 1.06l-6.75 6.75a.75.75 0 1 1-1.06-1.06l5.47-5.47H4.5a.75.75 0 0 1-.75-.75Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <span
+              class="absolute top-6 left-6 text-lg font-medium text-white drop-shadow-lg"
+            >
+              Meet Our Founder
+            </span>
+          </a>
           <!-- END Photo -->
 
           <!-- Intro -->
