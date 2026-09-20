@@ -1,25 +1,37 @@
-# Olivia - Portfolio Tailwind CSS template
-#### Preview
+# Value Connect Redesign
 
- - [Demo](https://themewagon.github.io/olivia/)
+Redesign of the [Value Connect](https://valueconnectonline.co.ke) website.
 
-#### Download
- - [Download from ThemeWagon](https://themewagon.com/themes/olivia/)
+This repository starts from a clean static template and will be progressively
+redesigned to migrate Value Connect's content, branding, and services.
+
+## Tech Stack
+
+- Static HTML (single page: `index.html`)
+- [Tailwind CSS v4](https://tailwindcss.com/) via the browser Play CDN
+- [Alpine.js](https://alpinejs.dev/) via CDN (dark-mode toggle and small interactions)
+- [Inter](https://fonts.bunny.net/) web font via bunny.net
+
+No build step, package manager, or server is required.
 
 ## Getting Started
 
-1. Clone Repository
+Open `index.html` directly in a browser, or serve the folder statically, e.g.:
+
 ```
-git clone https://github.com/themewagon/olivia.git
+python3 -m http.server
 ```
 
-## Author 
+then visit http://localhost:8000.
+
+## Project Structure
+
 ```
-Design and code is completely written by Pixelcave and development team. 
+index.html      # Entire page markup and inline configuration
+assets/         # Images (photo + project thumbnails)
 ```
 
-## License
+## Credits
 
- - Design and Code is Copyright &copy; <a href="https://pixelcave.com/" target="_blank">Pixelcave</a>
- - Licensed cover under [MIT]
- - Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+Built on the "Olivia" portfolio template, © [Pixelcave](https://pixelcave.com/),
+distributed by [ThemeWagon](https://themewagon.com/) under the MIT license.
