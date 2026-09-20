@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
@@ -52,7 +52,7 @@
     <!-- Page Container -->
     <div
       x-data="{
-        darkMode: false,
+        darkMode: true,
         toggleDarkMode() {
           this.darkMode = ! this.darkMode;
 
@@ -82,7 +82,7 @@
               href="javascript:void(0)"
               class="text-2xl font-thin tracking-widest hover:text-purple-600 active:opacity-75 dark:hover:text-purple-400"
             >
-              Olivia
+              Value Connect
             </a>
             <!-- END Logo -->
 
@@ -151,16 +151,69 @@
             <!-- Nav -->
             <nav class="flex items-center gap-6">
               <a
-                href="#projects"
+                href="#about"
                 class="text-sm font-medium decoration-purple-600 decoration-2 underline-offset-8 hover:text-black hover:underline dark:decoration-purple-400 dark:hover:text-white"
               >
-                Projects
+                About
+              </a>
+
+              <!-- Services Dropdown -->
+              <div class="relative" x-data="{ open: false }" x-on:click.outside="open = false">
+                <button
+                  x-on:click="open = ! open"
+                  type="button"
+                  class="flex items-center gap-1 text-sm font-medium decoration-purple-600 decoration-2 underline-offset-8 hover:text-black hover:underline dark:decoration-purple-400 dark:hover:text-white"
+                >
+                  <span>Services</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    class="inline-block size-4 transition-transform duration-150"
+                    x-bind:class="open ? 'rotate-180' : ''"
+                    aria-hidden="true"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6" />
+                  </svg>
+                </button>
+                <div
+                  x-cloak
+                  x-show="open"
+                  x-transition:enter="transition ease-out duration-150"
+                  x-transition:enter-start="opacity-0 -translate-y-1"
+                  x-transition:enter-end="opacity-100 translate-y-0"
+                  x-transition:leave="transition ease-in duration-100"
+                  x-transition:leave-start="opacity-100 translate-y-0"
+                  x-transition:leave-end="opacity-0 -translate-y-1"
+                  class="absolute right-0 z-10 mt-2 w-52 rounded-lg border border-zinc-200 bg-white p-2 shadow-lg dark:border-zinc-800 dark:bg-zinc-900"
+                >
+                  <!-- Service links to be populated in a later phase -->
+                  <p class="px-3 py-2 text-sm text-zinc-500 dark:text-zinc-400">
+                    Coming soon
+                  </p>
+                </div>
+              </div>
+              <!-- END Services Dropdown -->
+
+              <a
+                href="#testimonials"
+                class="text-sm font-medium decoration-purple-600 decoration-2 underline-offset-8 hover:text-black hover:underline dark:decoration-purple-400 dark:hover:text-white"
+              >
+                Testimonials
+              </a>
+              <a
+                href="#events"
+                class="text-sm font-medium decoration-purple-600 decoration-2 underline-offset-8 hover:text-black hover:underline dark:decoration-purple-400 dark:hover:text-white"
+              >
+                Events
               </a>
               <a
                 href="#contact"
                 class="text-sm font-medium decoration-purple-600 decoration-2 underline-offset-8 hover:text-black hover:underline dark:decoration-purple-400 dark:hover:text-white"
               >
-                Hire me
+                Contact Us
               </a>
             </nav>
             <!-- END Nav -->
