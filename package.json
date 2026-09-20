@@ -1,0 +1,14 @@
+{
+  "name": "value-connect-redesign",
+  "version": "1.0.0",
+  "description": "Redesign of the Value Connect website (static HTML + Tailwind CSS).",
+  "private": true,
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./assets/css/style.css --minify",
+    "watch": "tailwindcss -i ./src/input.css -o ./assets/css/style.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4",
+    "tailwindcss": "^4"
+  }
+}

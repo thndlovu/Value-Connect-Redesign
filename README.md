@@ -8,11 +8,13 @@ redesigned to migrate Value Connect's content, branding, and services.
 ## Tech Stack
 
 - Static HTML (single page: `index.html`)
-- [Tailwind CSS v4](https://tailwindcss.com/) via the browser Play CDN
+- [Tailwind CSS v4](https://tailwindcss.com/) compiled with the Tailwind CLI
 - [Alpine.js](https://alpinejs.dev/) via CDN (dark-mode toggle and small interactions)
 - [Inter](https://fonts.bunny.net/) web font via bunny.net
 
-No build step, package manager, or server is required.
+The site itself is plain static HTML/CSS/JS. The only tooling is the Tailwind
+CLI, used to compile `src/input.css` into `assets/css/style.css`. The compiled
+CSS is committed, so the site runs without a build step.
 
 ## Getting Started
 
@@ -24,11 +26,23 @@ python3 -m http.server
 
 then visit http://localhost:8000.
 
+## Building the CSS
+
+Only needed when editing markup classes or `src/input.css`:
+
+```
+npm install        # first time only
+npm run build      # compile once (minified)
+npm run watch      # rebuild on change during development
+```
+
 ## Project Structure
 
 ```
-index.html      # Entire page markup and inline configuration
-assets/         # Images (photo + project thumbnails)
+index.html         # Page markup
+src/input.css      # Tailwind CSS source (directives, theme, dark-mode variant)
+assets/css/        # Compiled stylesheet (style.css, generated)
+assets/            # Images (photo + project thumbnails)
 ```
 
 ## Credits

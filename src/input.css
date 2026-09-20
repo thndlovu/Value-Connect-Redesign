@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+/* Scan the markup for utility classes */
+@source "../index.html";
+
+/* Class based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Theme configuration */
+@theme {
+  /* Fonts */
+  --default-font-family: "Inter";
+}
