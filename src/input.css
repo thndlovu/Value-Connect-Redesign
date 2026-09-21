@@ -13,4 +13,7 @@
 
   /* Light-mode page background (warm off-white) */
   --color-page: #f5f4f1;
+
+  /* Dark-mode page background (slate) */
+  --color-page-dark: #50565d;
 }
