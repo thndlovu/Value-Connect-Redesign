@@ -10,4 +10,7 @@
 @theme {
   /* Fonts */
   --default-font-family: "Inter";
+
+  /* Light-mode page background (warm off-white) */
+  --color-page: #f5f4f1;
 }
