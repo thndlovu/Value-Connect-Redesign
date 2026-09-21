@@ -1,8 +1,17 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+    <!-- Apply the saved theme before render to avoid a flash (default: light) -->
+    <script>
+      try {
+        if (localStorage.getItem("theme") === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      } catch (e) {}
+    </script>
 
     <title>About Us - Value Connect</title>
 
@@ -51,15 +60,17 @@
     <!-- Page Container -->
     <div
       x-data="{
-        darkMode: true,
+        darkMode: document.documentElement.classList.contains('dark'),
         toggleDarkMode() {
           this.darkMode = ! this.darkMode;
 
-          // Toggle dark class on html element
+          // Toggle dark class on <html> and persist the choice
           if (this.darkMode) {
-            document.body.parentNode.classList.add('dark');
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
           } else {
-            document.body.parentNode.classList.remove('dark');
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
           }
         }
       }"
