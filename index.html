@@ -55,6 +55,14 @@
       [x-cloak] {
         display: none !important;
       }
+
+      /* Full-bleed: let the hero span the full viewport width inside the
+         centered max-w container. */
+      .vc-fullbleed {
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+      }
     </style>
   </head>
   <body class="antialiased">
@@ -75,7 +83,7 @@
           }
         }
       }"
-      class="min-h-dvh min-w-80 bg-page text-zinc-800 dark:bg-page-dark dark:text-zinc-100"
+      class="min-h-dvh min-w-80 overflow-x-clip bg-page text-zinc-800 dark:bg-page-dark dark:text-zinc-100"
     >
       <!-- Page Content -->
       <main
@@ -85,7 +93,7 @@
         <!-- Main Header -->
         <header
           id="page-header"
-          class="flex flex-none items-center justify-between py-7"
+          class="relative z-20 flex flex-none items-center justify-between py-7"
         >
           <div class="flex items-center gap-2">
             <!-- Logo -->
@@ -105,7 +113,7 @@
             <button
               x-on:click="toggleDarkMode()"
               type="button"
-              class="relative inline-flex size-9 items-center justify-center text-zinc-600 hover:opacity-75 dark:text-zinc-400"
+              class="relative inline-flex size-9 items-center justify-center text-white hover:opacity-75"
             >
               <div
                 x-cloak
@@ -167,7 +175,7 @@
             <nav class="flex items-center gap-6">
               <a
                 href="index.html"
-                class="text-sm font-medium decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-black hover:underline dark:decoration-[#0099CC] dark:hover:text-white text-black underline dark:text-white"
+                class="text-sm font-medium text-white/90 decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-white hover:underline text-white underline"
               >
                 Overview
               </a>
@@ -177,7 +185,7 @@
                 <button
                   x-on:click="open = ! open"
                   type="button"
-                  class="flex items-center gap-1 text-sm font-medium decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-black hover:underline dark:decoration-[#0099CC] dark:hover:text-white"
+                  class="flex items-center gap-1 text-sm font-medium text-white/90 decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-white hover:underline"
                 >
                   <span>About</span>
                   <svg
@@ -225,7 +233,7 @@
                 <button
                   x-on:click="open = ! open"
                   type="button"
-                  class="flex items-center gap-1 text-sm font-medium decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-black hover:underline dark:decoration-[#0099CC] dark:hover:text-white"
+                  class="flex items-center gap-1 text-sm font-medium text-white/90 decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-white hover:underline"
                 >
                   <span>Services</span>
                   <svg
@@ -270,19 +278,19 @@
 
               <a
                 href="testimonials.html"
-                class="text-sm font-medium decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-black hover:underline dark:decoration-[#0099CC] dark:hover:text-white"
+                class="text-sm font-medium text-white/90 decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-white hover:underline"
               >
                 Testimonials
               </a>
               <a
                 href="media-highlights.html"
-                class="text-sm font-medium decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-black hover:underline dark:decoration-[#0099CC] dark:hover:text-white"
+                class="text-sm font-medium text-white/90 decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-white hover:underline"
               >
                 Media &amp; Highlights
               </a>
               <a
                 href="contact.html"
-                class="text-sm font-medium decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-black hover:underline dark:decoration-[#0099CC] dark:hover:text-white"
+                class="text-sm font-medium text-white/90 decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-white hover:underline"
               >
                 Contact Us
               </a>
@@ -292,429 +300,49 @@
         </header>
         <!-- END Main Header -->
 
-        <!-- Main Content -->
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-12">
-          <!-- Photo -->
-          <a
-            href="meet-our-founder.html"
-            class="relative col-span-1 block overflow-hidden rounded-xl transition duration-300 ease-out hover:-translate-y-1 hover:shadow-xl md:col-span-5"
-          >
-            <img
-              src="assets/mercyAchola.png"
-              alt="Photo"
-              class="rounded-xl object-cover w-full aspect-square"
-            />
-            <span
-              class="absolute top-6 left-6 text-lg font-medium text-black drop-shadow-lg"
-            >
-              Meet Our Founder
-            </span>
-          </a>
-          <!-- END Photo -->
-
-          <!-- Intro -->
+        <!-- Hero (full-bleed, full-screen) -->
+        <section
+          class="vc-fullbleed relative -mt-[7rem] flex min-h-[100dvh] items-end justify-center overflow-hidden pb-20 md:pb-24"
+        >
+          <img
+            src="assets/ValueConnect.jpg"
+            alt="Value Connect"
+            class="absolute inset-0 h-full w-full object-cover"
+          />
+          <!-- Readability scrim -->
+          <div aria-hidden="true" class="absolute inset-0 bg-black/40"></div>
+          <!-- Extra top darkening for navbar legibility -->
           <div
-            class="relative col-span-1 flex flex-col overflow-hidden rounded-xl p-12 ring-1 ring-inset ring-[#003366]/20 md:col-span-7 dark:ring-white/15"
-          >
-            <div
-              aria-hidden="true"
-              class="absolute -top-20 -left-20 size-48 rounded-full bg-[#003366]/40 blur-2xl dark:bg-[#0099CC]/70"
-            ></div>
-            <div
-              aria-hidden="true"
-              class="absolute -top-10 -right-10 size-64 rounded-full bg-[#003366]/25 blur-3xl dark:bg-[#0099CC]/50"
-            ></div>
-            <div
-              aria-hidden="true"
-              class="absolute inset-0 bg-[#003366]/15 backdrop-blur-md dark:bg-[#0099CC]/45"
-            ></div>
-            <div class="relative mt-auto">
-              <h1 class="text-4xl font-medium text-black dark:text-white">
-                Connecting Capital. Creating Opportunity.
-              </h1>
-              <h2 class="mt-3 leading-relaxed text-zinc-900 dark:text-zinc-200">
-                At Value Connect, we build strategic connections between investors and business partners across the United Arab Emirates and Africa, with a focus on Kenya, Tanzania, and Mozambique. Our promise is simple: we add value to your business - or we have no business being in your business.
-              </h2>
-            </div>
-          </div>
-          <!-- END Intro -->
-
-          <!-- Section Header: What We Offer -->
-          <div class="col-span-1 text-center md:col-span-12">
-            <h2
-              class="text-3xl font-medium text-[#0099CC] md:text-4xl"
+            aria-hidden="true"
+            class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/55 to-transparent"
+          ></div>
+          <!-- Extremely subtle fade into the page background -->
+          <div
+            aria-hidden="true"
+            class="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-b from-transparent to-page dark:to-page-dark"
+          ></div>
+          <!-- Centered content -->
+          <div class="relative mx-auto max-w-3xl px-6 text-center">
+            <h1
+              class="text-4xl font-medium tracking-tight text-white md:text-5xl lg:text-6xl"
             >
-              What We Offer
-            </h2>
+              Connecting Capital. Creating Opportunity.
+            </h1>
             <p
-              class="mx-auto mt-3 max-w-2xl leading-relaxed text-[#99CC33]"
+              class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/85 md:text-xl"
             >
-              Strategic Services Designed to Create Value and Drive Growth
+              At Value Connect, we build strategic connections between investors
+              and business partners across the United Arab Emirates and Africa,
+              with a focus on Kenya, Tanzania, and Mozambique. Our promise is
+              simple: we add value to your business - or we have no business
+              being in your business.
             </p>
-            <hr class="mt-6 border-t border-zinc-200 dark:border-zinc-800" />
           </div>
-          <!-- END Section Header -->
+        </section>
+        <!-- END Hero -->
 
-          <!-- Services -->
-          <!-- Section Header: Leadership -->
-          <div id="leadership" class="col-span-1 md:col-span-12">
-            <h2
-              class="text-xl font-medium text-[#0099CC] md:text-2xl"
-            >
-              Leadership
-            </h2>
-            <div
-              class="mt-3 h-0.5 w-12 rounded-full bg-[#99CC33]"
-              aria-hidden="true"
-            ></div>
-          </div>
-          <!-- END Section Header: Leadership -->
-
-          <a
-            href="the-maxwell-method.html"
-            class="group relative col-span-1 overflow-hidden rounded-xl bg-white p-6 text-zinc-900 hover:bg-zinc-50 active:bg-zinc-100 md:col-span-4 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700 dark:active:bg-zinc-700"
-          >
-            <div
-              class="absolute top-6 right-6 scale-0 opacity-0 transition duration-75 ease-out group-hover:scale-100 group-hover:opacity-100"
-              aria-hidden="true"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="hi-solid hi-arrow-small-right inline-block size-6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3.75 12a.75.75 0 0 1 .75-.75h13.19l-5.47-5.47a.75.75 0 0 1 1.06-1.06l6.75 6.75a.75.75 0 0 1 0 1.06l-6.75 6.75a.75.75 0 1 1-1.06-1.06l5.47-5.47H4.5a.75.75 0 0 1-.75-.75Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-            <h3 class="text-lg font-medium text-zinc-900 dark:text-white">
-              The Maxwell Method
-            </h3>
-            <div
-              class="mt-10 transition duration-150 ease-out group-hover:scale-105"
-            >
-              <img
-                src="assets/project1.png"
-                alt="The Maxwell Method"
-                class="rounded-xl object-contain w-full aspect-square"
-              />
-            </div>
-          </a>
-
-          <a
-            href="the-maxwell-speakers-club.html"
-            class="group relative col-span-1 overflow-hidden rounded-xl bg-white p-6 text-zinc-900 hover:bg-zinc-50 active:bg-zinc-100 md:col-span-4 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700 dark:active:bg-zinc-700"
-          >
-            <div
-              class="absolute top-6 right-6 scale-0 opacity-0 transition duration-75 ease-out group-hover:scale-100 group-hover:opacity-100"
-              aria-hidden="true"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="hi-solid hi-arrow-small-right inline-block size-6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3.75 12a.75.75 0 0 1 .75-.75h13.19l-5.47-5.47a.75.75 0 0 1 1.06-1.06l6.75 6.75a.75.75 0 0 1 0 1.06l-6.75 6.75a.75.75 0 1 1-1.06-1.06l5.47-5.47H4.5a.75.75 0 0 1-.75-.75Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-            <h3 class="text-lg font-medium text-zinc-900 dark:text-white">
-              The Maxwell Speakers Club
-            </h3>
-            <div
-              class="mt-10 transition duration-150 ease-out group-hover:scale-105"
-            >
-              <img
-                src="assets/project2.png"
-                alt="The Maxwell Speakers Club"
-                class="rounded-xl object-contain w-full aspect-square"
-              />
-            </div>
-          </a>
-
-          <a
-            href="the-maxwell-leadership-assessment.html"
-            class="group relative col-span-1 overflow-hidden rounded-xl bg-white p-6 text-zinc-900 hover:bg-zinc-50 active:bg-zinc-100 md:col-span-4 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700 dark:active:bg-zinc-700"
-          >
-            <div
-              class="absolute top-6 right-6 scale-0 opacity-0 transition duration-75 ease-out group-hover:scale-100 group-hover:opacity-100"
-              aria-hidden="true"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="hi-solid hi-arrow-small-right inline-block size-6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3.75 12a.75.75 0 0 1 .75-.75h13.19l-5.47-5.47a.75.75 0 0 1 1.06-1.06l6.75 6.75a.75.75 0 0 1 0 1.06l-6.75 6.75a.75.75 0 1 1-1.06-1.06l5.47-5.47H4.5a.75.75 0 0 1-.75-.75Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-            <h3 class="text-lg font-medium text-zinc-900 dark:text-white">
-              The Maxwell Leadership Assessment
-            </h3>
-            <div
-              class="mt-10 transition duration-150 ease-out group-hover:scale-105"
-            >
-              <img
-                src="assets/project3.png"
-                alt="The Maxwell Leadership Assessment"
-                class="rounded-xl object-contain w-full aspect-square"
-              />
-            </div>
-          </a>
-
-          <!-- Section Header: Coaching -->
-          <div id="coaching" class="col-span-1 md:col-span-12">
-            <h2
-              class="text-xl font-medium text-[#0099CC] md:text-2xl"
-            >
-              Coaching
-            </h2>
-            <div
-              class="mt-3 h-0.5 w-12 rounded-full bg-[#99CC33]"
-              aria-hidden="true"
-            ></div>
-          </div>
-          <!-- END Section Header: Coaching -->
-
-          <a
-            href="professional-development-and-leadership-training.html"
-            class="group relative col-span-1 overflow-hidden rounded-xl bg-white p-6 text-zinc-900 hover:bg-zinc-50 active:bg-zinc-100 md:col-span-4 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700 dark:active:bg-zinc-700"
-          >
-            <div
-              class="absolute top-6 right-6 scale-0 opacity-0 transition duration-75 ease-out group-hover:scale-100 group-hover:opacity-100"
-              aria-hidden="true"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="hi-solid hi-arrow-small-right inline-block size-6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3.75 12a.75.75 0 0 1 .75-.75h13.19l-5.47-5.47a.75.75 0 0 1 1.06-1.06l6.75 6.75a.75.75 0 0 1 0 1.06l-6.75 6.75a.75.75 0 1 1-1.06-1.06l5.47-5.47H4.5a.75.75 0 0 1-.75-.75Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-            <h3 class="text-lg font-medium text-zinc-900 dark:text-white">
-              Professional Development &amp; Leadership Training
-            </h3>
-            <div
-              class="mt-10 transition duration-150 ease-out group-hover:scale-105"
-            >
-              <img
-                src="assets/project4.png"
-                alt="Professional Development &amp; Leadership Training"
-                class="rounded-xl object-contain w-full aspect-square"
-              />
-            </div>
-          </a>
-
-          <a
-            href="speaking-workshops-and-seminars.html"
-            class="group relative col-span-1 overflow-hidden rounded-xl bg-white p-6 text-zinc-900 hover:bg-zinc-50 active:bg-zinc-100 md:col-span-4 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700 dark:active:bg-zinc-700"
-          >
-            <div
-              class="absolute top-6 right-6 scale-0 opacity-0 transition duration-75 ease-out group-hover:scale-100 group-hover:opacity-100"
-              aria-hidden="true"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="hi-solid hi-arrow-small-right inline-block size-6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3.75 12a.75.75 0 0 1 .75-.75h13.19l-5.47-5.47a.75.75 0 0 1 1.06-1.06l6.75 6.75a.75.75 0 0 1 0 1.06l-6.75 6.75a.75.75 0 1 1-1.06-1.06l5.47-5.47H4.5a.75.75 0 0 1-.75-.75Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-            <h3 class="text-lg font-medium text-zinc-900 dark:text-white">
-              Speaking, Workshops, and Seminars
-            </h3>
-            <div
-              class="mt-10 transition duration-150 ease-out group-hover:scale-105"
-            >
-              <img
-                src="assets/project5.png"
-                alt="Speaking, Workshops, and Seminars"
-                class="rounded-xl object-contain w-full aspect-square"
-              />
-            </div>
-          </a>
-
-          <a
-            href="life-and-business-coaching.html"
-            class="group relative col-span-1 overflow-hidden rounded-xl bg-white p-6 text-zinc-900 hover:bg-zinc-50 active:bg-zinc-100 md:col-span-4 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700 dark:active:bg-zinc-700"
-          >
-            <div
-              class="absolute top-6 right-6 scale-0 opacity-0 transition duration-75 ease-out group-hover:scale-100 group-hover:opacity-100"
-              aria-hidden="true"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="hi-solid hi-arrow-small-right inline-block size-6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3.75 12a.75.75 0 0 1 .75-.75h13.19l-5.47-5.47a.75.75 0 0 1 1.06-1.06l6.75 6.75a.75.75 0 0 1 0 1.06l-6.75 6.75a.75.75 0 1 1-1.06-1.06l5.47-5.47H4.5a.75.75 0 0 1-.75-.75Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-            <h3 class="text-lg font-medium text-zinc-900 dark:text-white">
-              Life &amp; Business Coaching
-            </h3>
-            <div
-              class="mt-10 transition duration-150 ease-out group-hover:scale-105"
-            >
-              <img
-                src="assets/project6.png"
-                alt="Life &amp; Business Coaching"
-                class="rounded-xl object-contain w-full aspect-square"
-              />
-            </div>
-          </a>
-
-          <!-- Section Header: Discover -->
-          <div id="discover" class="col-span-1 md:col-span-12">
-            <h2
-              class="text-xl font-medium text-[#0099CC] md:text-2xl"
-            >
-              Discover
-            </h2>
-            <div
-              class="mt-3 h-0.5 w-12 rounded-full bg-[#99CC33]"
-              aria-hidden="true"
-            ></div>
-          </div>
-          <!-- END Section Header: Discover -->
-
-          <a
-            href="john-maxwell-leadership-game.html"
-            class="group relative col-span-1 overflow-hidden rounded-xl bg-white p-6 text-zinc-900 hover:bg-zinc-50 active:bg-zinc-100 md:col-span-4 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700 dark:active:bg-zinc-700"
-          >
-            <div
-              class="absolute top-6 right-6 scale-0 opacity-0 transition duration-75 ease-out group-hover:scale-100 group-hover:opacity-100"
-              aria-hidden="true"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="hi-solid hi-arrow-small-right inline-block size-6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3.75 12a.75.75 0 0 1 .75-.75h13.19l-5.47-5.47a.75.75 0 0 1 1.06-1.06l6.75 6.75a.75.75 0 0 1 0 1.06l-6.75 6.75a.75.75 0 1 1-1.06-1.06l5.47-5.47H4.5a.75.75 0 0 1-.75-.75Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-            <h3 class="text-lg font-medium text-zinc-900 dark:text-white">
-              John Maxwell Leadership Game
-            </h3>
-            <div
-              class="mt-10 transition duration-150 ease-out group-hover:scale-105"
-            >
-              <img
-                src="assets/project1.png"
-                alt="John Maxwell Leadership Game"
-                class="rounded-xl object-contain w-full aspect-square"
-              />
-            </div>
-          </a>
-
-          <a
-            href="connecting-your-childs-giftedness.html"
-            class="group relative col-span-1 overflow-hidden rounded-xl bg-white p-6 text-zinc-900 hover:bg-zinc-50 active:bg-zinc-100 md:col-span-4 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700 dark:active:bg-zinc-700"
-          >
-            <div
-              class="absolute top-6 right-6 scale-0 opacity-0 transition duration-75 ease-out group-hover:scale-100 group-hover:opacity-100"
-              aria-hidden="true"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="hi-solid hi-arrow-small-right inline-block size-6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3.75 12a.75.75 0 0 1 .75-.75h13.19l-5.47-5.47a.75.75 0 0 1 1.06-1.06l6.75 6.75a.75.75 0 0 1 0 1.06l-6.75 6.75a.75.75 0 1 1-1.06-1.06l5.47-5.47H4.5a.75.75 0 0 1-.75-.75Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-            <h3 class="text-lg font-medium text-zinc-900 dark:text-white">
-              Connecting Your Child’s Giftedness
-            </h3>
-            <div
-              class="mt-10 transition duration-150 ease-out group-hover:scale-105"
-            >
-              <img
-                src="assets/project2.png"
-                alt="Connecting Your Child’s Giftedness"
-                class="rounded-xl object-contain w-full aspect-square"
-              />
-            </div>
-          </a>
-
-          <a
-            href="discover-your-potential-power-of-3.html"
-            class="group relative col-span-1 overflow-hidden rounded-xl bg-white p-6 text-zinc-900 hover:bg-zinc-50 active:bg-zinc-100 md:col-span-4 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700 dark:active:bg-zinc-700"
-          >
-            <div
-              class="absolute top-6 right-6 scale-0 opacity-0 transition duration-75 ease-out group-hover:scale-100 group-hover:opacity-100"
-              aria-hidden="true"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="hi-solid hi-arrow-small-right inline-block size-6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3.75 12a.75.75 0 0 1 .75-.75h13.19l-5.47-5.47a.75.75 0 0 1 1.06-1.06l6.75 6.75a.75.75 0 0 1 0 1.06l-6.75 6.75a.75.75 0 1 1-1.06-1.06l5.47-5.47H4.5a.75.75 0 0 1-.75-.75Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-            <h3 class="text-lg font-medium text-zinc-900 dark:text-white">
-              Discover Your Potential Using the Power of 3 &amp; John Maxwell Resources
-            </h3>
-            <div
-              class="mt-10 transition duration-150 ease-out group-hover:scale-105"
-            >
-              <img
-                src="assets/project3.png"
-                alt="Discover Your Potential Using the Power of 3 &amp; John Maxwell Resources"
-                class="rounded-xl object-contain w-full aspect-square"
-              />
-            </div>
-          </a>
-
-          <!-- END Services -->
-
+        <!-- Main Content -->
+        <div class="mt-8 grid grid-cols-1 gap-6 md:mt-12 md:grid-cols-12">
           <!-- Our Partners -->
           <!-- Section Header: Our Partners -->
           <div class="col-span-1 text-center md:col-span-12">
