@@ -141,3 +141,88 @@
     }
   }
 }
+
+/*
+  Collapsible nav below 820px, where the links stop fitting on one line.
+  Deliberately unlayered so it overrides the desktop utilities in the markup.
+*/
+@media (width < 820px) {
+  .vc-nav {
+    display: none;
+
+    &.is-open {
+      position: absolute;
+      inset: calc(100% - 1rem) 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      max-height: calc(100dvh - 7rem);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 0.5rem;
+      border-radius: var(--radius-xl);
+      background-color: var(--glass-menu);
+      backdrop-filter: blur(20px) saturate(140%);
+      box-shadow:
+        inset 0 1px 0 var(--glass-light),
+        inset 0 0 0 1px var(--glass-edge),
+        0 8px 22px -14px var(--glass-shade);
+
+      @media (prefers-reduced-transparency: reduce) {
+        background-color: var(--color-page);
+        backdrop-filter: none;
+
+        &:where(.dark, .dark *) {
+          background-color: var(--color-page-dark);
+        }
+      }
+    }
+
+    /* Top-level items */
+    > a,
+    > div > button {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      min-height: 2.75rem;
+      padding-inline: 0.75rem;
+      color: var(--color-zinc-800);
+
+      &:where(.dark, .dark *) {
+        color: var(--color-white);
+      }
+    }
+
+    > div {
+      flex-shrink: 0;
+    }
+
+    /* Dropdowns expand in place inside the panel */
+    > div > div {
+      position: static;
+      width: auto;
+      margin: 0;
+      padding: 0 0 0.25rem 0.75rem;
+      background: none;
+      box-shadow: none;
+      backdrop-filter: none;
+
+      a {
+        display: flex;
+        align-items: center;
+        min-height: 2.75rem;
+      }
+
+      p {
+        color: var(--color-zinc-600);
+
+        &:where(.dark, .dark *) {
+          color: var(--color-zinc-200);
+        }
+      }
+    }
+  }
+}
