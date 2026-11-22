@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="none" fill="none">
+  <defs>
+    <radialGradient id="cream" cx="120" cy="260" r="620" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#30363d" stop-opacity="0.3"/><stop offset="1" stop-color="#30363d" stop-opacity="0"/></radialGradient>
+    <radialGradient id="blue" cx="1480" cy="90" r="820" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#003366" stop-opacity="0.36"/><stop offset="1" stop-color="#003366" stop-opacity="0"/></radialGradient>
+    <radialGradient id="green" cx="1560" cy="880" r="620" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#99CC33" stop-opacity=".05"/><stop offset="1" stop-color="#99CC33" stop-opacity="0"/></radialGradient>
+    <radialGradient id="centre" cx="760" cy="560" r="560" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#30363d" stop-opacity="0.16"/><stop offset="1" stop-color="#30363d" stop-opacity="0"/></radialGradient>
+    <linearGradient id="veil" x1="0" y1="0" x2="330" y2="260" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#003366" stop-opacity="0.16"/><stop offset="1" stop-color="#003366" stop-opacity="0"/></linearGradient>
+    <linearGradient id="right" x1="1600" y1="250" x2="1080" y2="610" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0099CC" stop-opacity=".1"/><stop offset="1" stop-color="#0099CC" stop-opacity="0"/></linearGradient>
+    <linearGradient id="leaf" x1="1600" y1="1000" x2="1330" y2="760" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#99CC33" stop-opacity=".06"/><stop offset="1" stop-color="#99CC33" stop-opacity="0"/></linearGradient>
+    <linearGradient id="low" x1="0" y1="1000" x2="330" y2="780" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0099CC" stop-opacity=".11"/><stop offset="1" stop-color="#0099CC" stop-opacity="0"/></linearGradient>
+    <linearGradient id="lower" x1="0" y1="1000" x2="260" y2="820" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0099CC" stop-opacity=".11"/><stop offset="1" stop-color="#0099CC" stop-opacity="0"/></linearGradient>
+    <linearGradient id="rim"><stop offset="0" stop-color="#fff" stop-opacity=".2"/><stop offset=".5" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".2"/></linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="9"/></filter>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#cream)"/>
+  <rect width="1600" height="1000" fill="url(#blue)"/>
+  <rect width="1600" height="1000" fill="url(#green)"/>
+  <rect width="1600" height="1000" fill="url(#centre)"/>
+  <path d="M0 365C150 345 220 230 300 170S420 60 560 0H0Z" fill="url(#veil)"/>
+  <path d="M0 365C150 345 220 230 300 170S420 60 560 0" stroke="url(#rim)" stroke-opacity="0.04" stroke-width="16" filter="url(#soft)"/>
+  <path d="M0 365C150 345 220 230 300 170S420 60 560 0" stroke="url(#rim)" stroke-opacity="0.09" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+  <path d="M1600 200C1440 225 1310 300 1200 395S1050 560 880 650C1150 720 1420 680 1600 560Z" fill="url(#right)"/>
+  <path d="M1600 200C1440 225 1310 300 1200 395S1050 560 880 650" stroke="url(#rim)" stroke-opacity="0.04" stroke-width="16" filter="url(#soft)"/>
+  <path d="M1600 200C1440 225 1310 300 1200 395S1050 560 880 650" stroke="url(#rim)" stroke-opacity="0.09" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+  <path d="M1600 705C1470 735 1390 815 1330 870S1230 965 1160 1000H1600Z" fill="url(#leaf)"/>
+  <path d="M1600 705C1470 735 1390 815 1330 870S1230 965 1160 1000" stroke="url(#rim)" stroke-opacity="0.04" stroke-width="16" filter="url(#soft)"/>
+  <path d="M1600 705C1470 735 1390 815 1330 870S1230 965 1160 1000" stroke="url(#rim)" stroke-opacity="0.09" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+  <path d="M0 770C130 800 230 865 320 920S470 985 560 1000H0Z" fill="url(#low)"/>
+  <path d="M0 770C130 800 230 865 320 920S470 985 560 1000" stroke="url(#rim)" stroke-opacity="0.04" stroke-width="16" filter="url(#soft)"/>
+  <path d="M0 770C130 800 230 865 320 920S470 985 560 1000" stroke="url(#rim)" stroke-opacity="0.09" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+  <path d="M0 855C150 855 260 900 350 940S480 990 540 1000H0Z" fill="url(#lower)"/>
+  <path d="M0 855C150 855 260 900 350 940S480 990 540 1000" stroke="url(#rim)" stroke-opacity="0.04" stroke-width="16" filter="url(#soft)"/>
+  <path d="M0 855C150 855 260 900 350 940S480 990 540 1000" stroke="url(#rim)" stroke-opacity="0.09" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+</svg>
