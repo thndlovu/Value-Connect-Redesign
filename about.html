@@ -116,7 +116,10 @@
         <!-- Main Header -->
         <header
           id="page-header"
-          class="flex flex-none items-center justify-between py-7"
+          x-data="{ menuOpen: false }"
+          x-on:click.outside="menuOpen = false"
+          x-on:keydown.escape.window="if (menuOpen) { menuOpen = false; $refs.menuButton.focus() }"
+          class="relative z-20 flex flex-none items-center justify-between py-7"
         >
           <div class="flex items-center gap-2">
             <!-- Logo -->
@@ -194,8 +197,38 @@
             <!-- END Toggle Dark Mode -->
           </div>
           <div class="flex items-center gap-4">
+            <!-- Menu Button (small screens) -->
+            <button
+              x-ref="menuButton"
+              x-on:click="menuOpen = ! menuOpen"
+              x-bind:aria-expanded="menuOpen"
+              type="button"
+              aria-controls="primary-nav"
+              aria-expanded="false"
+              aria-label="Menu"
+              class="-mr-2 inline-flex size-11 items-center justify-center text-zinc-600 hover:opacity-75 min-[820px]:hidden dark:text-zinc-400"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                class="size-6"
+                aria-hidden="true"
+              >
+                <path x-show="!menuOpen" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+                <path x-cloak x-show="menuOpen" stroke-linecap="round" d="M6 6l12 12M18 6 6 18" />
+              </svg>
+            </button>
+            <!-- END Menu Button -->
+
             <!-- Nav -->
-            <nav class="flex items-center gap-6">
+            <nav
+              id="primary-nav"
+              x-bind:class="{ 'is-open': menuOpen }"
+              class="vc-nav flex items-center gap-6"
+            >
               <a
                 href="index.html"
                 class="text-sm font-medium decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-black hover:underline dark:decoration-[#0099CC] dark:hover:text-white"
