@@ -101,6 +101,11 @@
     }
   }
 
+  /* Photos keep only the soft drop shadow: nothing is drawn over the image */
+  .vc-photo-frame {
+    box-shadow: 0 20px 36px -20px var(--glass-shade);
+  }
+
   /* Hero transition: progressive frost beneath an eased colour fade */
   .vc-hero-frost {
     backdrop-filter: blur(3px);
