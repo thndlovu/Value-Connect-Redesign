@@ -72,18 +72,8 @@
           x-data="{ menuOpen: false }"
           x-on:click.outside="menuOpen = false"
           x-on:keydown.escape.window="if (menuOpen) { menuOpen = false; $refs.menuButton.focus() }"
-          class="relative z-20 flex flex-none items-center justify-between py-7"
+          class="relative z-20 flex min-h-28 flex-none items-center justify-end py-7 min-[820px]:justify-center"
         >
-          <div class="flex items-center gap-2">
-            <!-- Wordmark -->
-            <a
-              href="index.html"
-              class="inline-flex h-14 items-center text-[1.375rem] font-semibold tracking-[0.08em] whitespace-nowrap text-white uppercase transition hover:opacity-80 active:opacity-75"
-            >
-              Value Connect
-            </a>
-            <!-- END Wordmark -->
-          </div>
           <div class="flex items-center gap-4">
             <!-- Menu Button (small screens) -->
             <button
