@@ -3,9 +3,6 @@
 /* Scan the markup for utility classes */
 @source "../*.html";
 
-/* Class based dark mode */
-@custom-variant dark (&:where(.dark, .dark *));
-
 /* Theme configuration */
 @theme {
   /* Fonts */
@@ -13,9 +10,6 @@
 
   /* Light-mode page background (warm off-white) */
   --color-page: #f5f4f1;
-
-  /* Dark-mode page background (slate) */
-  --color-page-dark: #50565d;
 }
 
 /* Glass surfaces (edges are inset shadows, so they never affect layout) */
@@ -28,16 +22,6 @@
     --glass-light: rgb(255 255 255 / 0.85);
     --glass-shade: rgb(0 51 102 / 0.2);
     --glass-surface: url("../bg-glass-light.svg");
-  }
-
-  .dark {
-    --glass-fill: rgb(255 255 255 / 0.04);
-    --glass-menu: color-mix(in srgb, var(--color-page-dark) 88%, transparent);
-    --glass-sheen: rgb(255 255 255 / 0.06);
-    --glass-edge: rgb(255 255 255 / 0.1);
-    --glass-light: rgb(255 255 255 / 0.17);
-    --glass-shade: rgb(0 0 0 / 0.35);
-    --glass-surface: url("../bg-glass-dark.svg");
   }
 
   /* One fixed light field behind every page, over the page colour */
@@ -151,10 +135,6 @@
   @media (prefers-reduced-transparency: reduce) {
     .vc-glass-menu {
       background-color: var(--color-page);
-
-      &:where(.dark, .dark *) {
-        background-color: var(--color-page-dark);
-      }
     }
 
     .vc-glass,
@@ -196,10 +176,6 @@
       @media (prefers-reduced-transparency: reduce) {
         background-color: var(--color-page);
         backdrop-filter: none;
-
-        &:where(.dark, .dark *) {
-          background-color: var(--color-page-dark);
-        }
       }
     }
 
@@ -214,10 +190,6 @@
       min-height: 2.75rem;
       padding-inline: 0.75rem;
       color: var(--color-zinc-800);
-
-      &:where(.dark, .dark *) {
-        color: var(--color-white);
-      }
     }
 
     > div {
@@ -242,10 +214,6 @@
 
       p {
         color: var(--color-zinc-600);
-
-        &:where(.dark, .dark *) {
-          color: var(--color-zinc-200);
-        }
       }
     }
   }

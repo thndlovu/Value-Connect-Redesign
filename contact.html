@@ -4,15 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
-    <!-- Apply the saved theme before render to avoid a flash (default: light) -->
-    <script>
-      try {
-        if (localStorage.getItem("theme") === "dark") {
-          document.documentElement.classList.add("dark");
-        }
-      } catch (e) {}
-    </script>
-
     <title>Contact Us - Value Connect</title>
 
     <meta
@@ -71,22 +62,7 @@
   <body class="antialiased">
     <!-- Page Container -->
     <div
-      x-data="{
-        darkMode: document.documentElement.classList.contains('dark'),
-        toggleDarkMode() {
-          this.darkMode = ! this.darkMode;
-
-          // Toggle dark class on <html> and persist the choice
-          if (this.darkMode) {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-          } else {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-          }
-        }
-      }"
-      class="vc-surface min-h-dvh min-w-80 bg-page text-zinc-800 dark:bg-page-dark dark:text-zinc-100"
+      class="vc-surface min-h-dvh min-w-80 bg-page text-zinc-800"
     >
       <!-- Page Content -->
       <main
@@ -114,67 +90,6 @@
               />
             </a>
             <!-- END Logo -->
-
-            <!-- Toggle Dark Mode -->
-            <button
-              x-on:click="toggleDarkMode()"
-              type="button"
-              class="relative inline-flex size-9 items-center justify-center text-zinc-600 hover:opacity-75 dark:text-zinc-400"
-            >
-              <div
-                x-cloak
-                x-show="!darkMode"
-                x-transition:enter="transition ease-out duration-150"
-                x-transition:enter-start="opacity-0 rotate-180"
-                x-transition:enter-end="opacity-100 rotate-0"
-                x-transition:leave="transition ease-in duration-100"
-                x-transition:leave-start="opacity-100 rotate-0"
-                x-transition:leave-end="opacity-0 rotate-180"
-                class="absolute inset-0 flex items-center justify-center"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="hi-outline hi-sun inline-block size-5"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
-                  />
-                </svg>
-              </div>
-              <div
-                x-cloak
-                x-show="darkMode"
-                x-transition:enter="transition ease-out duration-150"
-                x-transition:enter-start="opacity-0 rotate-180"
-                x-transition:enter-end="opacity-100 rotate-0"
-                x-transition:leave="transition ease-in duration-100"
-                x-transition:leave-start="opacity-100 rotate-0"
-                x-transition:leave-end="opacity-0 rotate-180"
-                class="absolute inset-0 flex items-center justify-center"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="hi-outline hi-moon inline-block size-5"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
-                  />
-                </svg>
-              </div>
-            </button>
-            <!-- END Toggle Dark Mode -->
           </div>
           <div class="flex items-center gap-4">
             <!-- Menu Button (small screens) -->
@@ -186,7 +101,7 @@
               aria-controls="primary-nav"
               aria-expanded="false"
               aria-label="Menu"
-              class="-mr-2 inline-flex size-11 items-center justify-center text-zinc-600 hover:opacity-75 min-[820px]:hidden dark:text-zinc-400"
+              class="-mr-2 inline-flex size-11 items-center justify-center text-zinc-600 hover:opacity-75 min-[820px]:hidden"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -211,7 +126,7 @@
             >
               <a
                 href="index.html"
-                class="text-sm font-medium decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-black hover:underline dark:decoration-[#0099CC] dark:hover:text-white"
+                class="text-sm font-medium decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-black hover:underline"
               >
                 Overview
               </a>
@@ -221,7 +136,7 @@
                 <button
                   x-on:click="open = ! open"
                   type="button"
-                  class="flex items-center gap-1 text-sm font-medium decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-black hover:underline dark:decoration-[#0099CC] dark:hover:text-white"
+                  class="flex items-center gap-1 text-sm font-medium decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-black hover:underline"
                 >
                   <span>About</span>
                   <svg
@@ -250,13 +165,13 @@
                 >
                   <a
                     href="about.html"
-                    class="block rounded-md px-3 py-2 text-sm text-zinc-700 hover:bg-zinc-900/5 hover:text-black dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white"
+                    class="block rounded-md px-3 py-2 text-sm text-zinc-700 hover:bg-zinc-900/5 hover:text-black"
                   >
                     Value Connect
                   </a>
                   <a
                     href="meet-our-founder.html"
-                    class="block rounded-md px-3 py-2 text-sm text-zinc-700 hover:bg-zinc-900/5 hover:text-black dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white"
+                    class="block rounded-md px-3 py-2 text-sm text-zinc-700 hover:bg-zinc-900/5 hover:text-black"
                   >
                     Meet Our Founder
                   </a>
@@ -269,7 +184,7 @@
                 <button
                   x-on:click="open = ! open"
                   type="button"
-                  class="flex items-center gap-1 text-sm font-medium decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-black hover:underline dark:decoration-[#0099CC] dark:hover:text-white"
+                  class="flex items-center gap-1 text-sm font-medium decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-black hover:underline"
                 >
                   <span>Services</span>
                   <svg
@@ -296,37 +211,37 @@
                   x-transition:leave-end="opacity-0 -translate-y-1"
                   class="absolute right-0 z-10 mt-2 w-80 vc-glass-menu rounded-lg border border-transparent p-2"
                 >
-                  <p class="px-3 pb-1 text-xs font-semibold tracking-wider text-zinc-400 uppercase dark:text-zinc-500 pt-1">Leadership</p>
-                  <a href="the-maxwell-method.html" class="block rounded-md px-3 py-2 text-sm leading-snug text-zinc-700 hover:bg-zinc-900/5 hover:text-black dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white">The Maxwell Method</a>
-                  <a href="the-maxwell-speakers-club.html" class="block rounded-md px-3 py-2 text-sm leading-snug text-zinc-700 hover:bg-zinc-900/5 hover:text-black dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white">The Maxwell Speakers Club</a>
-                  <a href="the-maxwell-leadership-assessment.html" class="block rounded-md px-3 py-2 text-sm leading-snug text-zinc-700 hover:bg-zinc-900/5 hover:text-black dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white">The Maxwell Leadership Assessment</a>
-                  <p class="px-3 pb-1 text-xs font-semibold tracking-wider text-zinc-400 uppercase dark:text-zinc-500 pt-3">Coaching</p>
-                  <a href="professional-development-and-leadership-training.html" class="block rounded-md px-3 py-2 text-sm leading-snug text-zinc-700 hover:bg-zinc-900/5 hover:text-black dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white">Professional Development &amp; Leadership Training</a>
-                  <a href="speaking-workshops-and-seminars.html" class="block rounded-md px-3 py-2 text-sm leading-snug text-zinc-700 hover:bg-zinc-900/5 hover:text-black dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white">Speaking, Workshops, and Seminars</a>
-                  <a href="life-and-business-coaching.html" class="block rounded-md px-3 py-2 text-sm leading-snug text-zinc-700 hover:bg-zinc-900/5 hover:text-black dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white">Life &amp; Business Coaching</a>
-                  <p class="px-3 pb-1 text-xs font-semibold tracking-wider text-zinc-400 uppercase dark:text-zinc-500 pt-3">Discover</p>
-                  <a href="john-maxwell-leadership-game.html" class="block rounded-md px-3 py-2 text-sm leading-snug text-zinc-700 hover:bg-zinc-900/5 hover:text-black dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white">John Maxwell Leadership Game</a>
-                  <a href="connecting-your-childs-giftedness.html" class="block rounded-md px-3 py-2 text-sm leading-snug text-zinc-700 hover:bg-zinc-900/5 hover:text-black dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white">Connecting Your Child&rsquo;s Giftedness</a>
-                  <a href="discover-your-potential-power-of-3.html" class="block rounded-md px-3 py-2 text-sm leading-snug text-zinc-700 hover:bg-zinc-900/5 hover:text-black dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white">Discover Your Potential Using the Power of 3 &amp; John Maxwell Resources</a>
+                  <p class="px-3 pb-1 text-xs font-semibold tracking-wider text-zinc-400 uppercase pt-1">Leadership</p>
+                  <a href="the-maxwell-method.html" class="block rounded-md px-3 py-2 text-sm leading-snug text-zinc-700 hover:bg-zinc-900/5 hover:text-black">The Maxwell Method</a>
+                  <a href="the-maxwell-speakers-club.html" class="block rounded-md px-3 py-2 text-sm leading-snug text-zinc-700 hover:bg-zinc-900/5 hover:text-black">The Maxwell Speakers Club</a>
+                  <a href="the-maxwell-leadership-assessment.html" class="block rounded-md px-3 py-2 text-sm leading-snug text-zinc-700 hover:bg-zinc-900/5 hover:text-black">The Maxwell Leadership Assessment</a>
+                  <p class="px-3 pb-1 text-xs font-semibold tracking-wider text-zinc-400 uppercase pt-3">Coaching</p>
+                  <a href="professional-development-and-leadership-training.html" class="block rounded-md px-3 py-2 text-sm leading-snug text-zinc-700 hover:bg-zinc-900/5 hover:text-black">Professional Development &amp; Leadership Training</a>
+                  <a href="speaking-workshops-and-seminars.html" class="block rounded-md px-3 py-2 text-sm leading-snug text-zinc-700 hover:bg-zinc-900/5 hover:text-black">Speaking, Workshops, and Seminars</a>
+                  <a href="life-and-business-coaching.html" class="block rounded-md px-3 py-2 text-sm leading-snug text-zinc-700 hover:bg-zinc-900/5 hover:text-black">Life &amp; Business Coaching</a>
+                  <p class="px-3 pb-1 text-xs font-semibold tracking-wider text-zinc-400 uppercase pt-3">Discover</p>
+                  <a href="john-maxwell-leadership-game.html" class="block rounded-md px-3 py-2 text-sm leading-snug text-zinc-700 hover:bg-zinc-900/5 hover:text-black">John Maxwell Leadership Game</a>
+                  <a href="connecting-your-childs-giftedness.html" class="block rounded-md px-3 py-2 text-sm leading-snug text-zinc-700 hover:bg-zinc-900/5 hover:text-black">Connecting Your Child&rsquo;s Giftedness</a>
+                  <a href="discover-your-potential-power-of-3.html" class="block rounded-md px-3 py-2 text-sm leading-snug text-zinc-700 hover:bg-zinc-900/5 hover:text-black">Discover Your Potential Using the Power of 3 &amp; John Maxwell Resources</a>
                 </div>
               </div>
               <!-- END Services Dropdown -->
 
               <a
                 href="testimonials.html"
-                class="text-sm font-medium decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-black hover:underline dark:decoration-[#0099CC] dark:hover:text-white"
+                class="text-sm font-medium decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-black hover:underline"
               >
                 Testimonials
               </a>
               <a
                 href="media-highlights.html"
-                class="text-sm font-medium decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-black hover:underline dark:decoration-[#0099CC] dark:hover:text-white"
+                class="text-sm font-medium decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-black hover:underline"
               >
                 Media &amp; Highlights
               </a>
               <a
                 href="contact.html"
-                class="text-sm font-medium decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-black hover:underline dark:decoration-[#0099CC] dark:hover:text-white text-black underline dark:text-white"
+                class="text-sm font-medium decoration-[#0099CC] decoration-2 underline-offset-8 hover:text-black hover:underline text-black underline"
               >
                 Contact Us
               </a>
@@ -342,17 +257,17 @@
           <!-- Heading block -->
           <div class="text-center">
             <p
-              class="text-sm font-semibold tracking-widest text-zinc-500 uppercase dark:text-zinc-400"
+              class="text-sm font-semibold tracking-widest text-zinc-500 uppercase"
             >
               Connect With Us
             </p>
             <h1
-              class="mx-auto mt-3 max-w-3xl text-4xl font-medium tracking-tight text-black md:text-5xl lg:text-6xl dark:text-white"
+              class="mx-auto mt-3 max-w-3xl text-4xl font-medium tracking-tight text-black md:text-5xl lg:text-6xl"
             >
               Where Opportunity Meets Connection
             </h1>
             <p
-              class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400"
+              class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-zinc-600"
             >
               Supporting sentence placeholder — a short line introducing how to
               reach Value Connect will go here.
@@ -368,7 +283,7 @@
               <!-- Phone -->
               <div>
                 <p
-                  class="text-xs font-semibold tracking-widest text-zinc-500 uppercase dark:text-zinc-400"
+                  class="text-xs font-semibold tracking-widest text-zinc-500 uppercase"
                 >
                   Phone
                 </p>
@@ -395,13 +310,13 @@
                       />
                     </svg>
                   </a>
-                  <p class="text-lg text-black dark:text-white">+000 000 0000</p>
+                  <p class="text-lg text-black">+000 000 0000</p>
                 </div>
               </div>
               <!-- Email -->
               <div>
                 <p
-                  class="text-xs font-semibold tracking-widest text-zinc-500 uppercase dark:text-zinc-400"
+                  class="text-xs font-semibold tracking-widest text-zinc-500 uppercase"
                 >
                   Email
                 </p>
@@ -428,7 +343,7 @@
                       />
                     </svg>
                   </a>
-                  <p class="text-lg text-black dark:text-white">
+                  <p class="text-lg text-black">
                     placeholder@example.com
                   </p>
                 </div>
@@ -436,7 +351,7 @@
               <!-- Location -->
               <div>
                 <p
-                  class="text-xs font-semibold tracking-widest text-zinc-500 uppercase dark:text-zinc-400"
+                  class="text-xs font-semibold tracking-widest text-zinc-500 uppercase"
                 >
                   Location
                 </p>
@@ -470,7 +385,7 @@
                       />
                     </svg>
                   </a>
-                  <p class="text-lg text-black dark:text-white">
+                  <p class="text-lg text-black">
                     Placeholder Location, City, Country
                   </p>
                 </div>
@@ -487,7 +402,7 @@
               >
                 <!-- Faint geography (simplified real coastlines: Africa, Arabia, Europe) -->
                 <path
-                  class="fill-[#003366]/5 stroke-[#003366]/25 dark:fill-white/5 dark:stroke-white/15"
+                  class="fill-[#003366]/5 stroke-[#003366]/25"
                   stroke-width="0.8"
                   stroke-linejoin="round"
                   fill-rule="evenodd"
@@ -522,14 +437,14 @@
                 <!-- Germany (Europe) — secondary -->
                 <g>
                   <circle cx="216" cy="45" r="8" class="fill-[#0099CC]/10" />
-                  <circle cx="216" cy="45" r="3.5" class="fill-[#003366] dark:fill-[#0099CC]" />
+                  <circle cx="216" cy="45" r="3.5" class="fill-[#003366]" />
                   <text
                     x="216"
                     y="30"
                     text-anchor="middle"
                     font-size="11"
                     font-weight="600"
-                    class="fill-zinc-400 dark:fill-zinc-500"
+                    class="fill-zinc-400"
                   >
                     Germany
                   </text>
@@ -538,14 +453,14 @@
                 <!-- Mozambique (Southern Africa) — secondary -->
                 <g>
                   <circle cx="328" cy="323" r="8" class="fill-[#0099CC]/10" />
-                  <circle cx="328" cy="323" r="3.5" class="fill-[#003366] dark:fill-[#0099CC]" />
+                  <circle cx="328" cy="323" r="3.5" class="fill-[#003366]" />
                   <text
                     x="328"
                     y="342"
                     text-anchor="middle"
                     font-size="11"
                     font-weight="600"
-                    class="fill-zinc-400 dark:fill-zinc-500"
+                    class="fill-zinc-400"
                   >
                     Mozambique
                   </text>
@@ -554,14 +469,14 @@
                 <!-- Tanzania (East Africa) — secondary -->
                 <g>
                   <circle cx="357" cy="256" r="8" class="fill-[#0099CC]/10" />
-                  <circle cx="357" cy="256" r="3.5" class="fill-[#003366] dark:fill-[#0099CC]" />
+                  <circle cx="357" cy="256" r="3.5" class="fill-[#003366]" />
                   <text
                     x="357"
                     y="275"
                     text-anchor="middle"
                     font-size="11"
                     font-weight="600"
-                    class="fill-zinc-400 dark:fill-zinc-500"
+                    class="fill-zinc-400"
                   >
                     Tanzania
                   </text>
@@ -584,7 +499,7 @@
                     text-anchor="end"
                     font-size="13"
                     font-weight="600"
-                    class="fill-zinc-500 dark:fill-zinc-400"
+                    class="fill-zinc-500"
                   >
                     Nairobi, Kenya
                   </text>
@@ -604,7 +519,7 @@
                     cx="461"
                     cy="141"
                     r="4.5"
-                    class="fill-[#003366] dark:fill-[#0099CC]"
+                    class="fill-[#003366]"
                   />
                   <text
                     x="438"
@@ -612,7 +527,7 @@
                     text-anchor="end"
                     font-size="13"
                     font-weight="600"
-                    class="fill-zinc-500 dark:fill-zinc-400"
+                    class="fill-zinc-500"
                   >
                     Dubai, UAE
                   </text>
@@ -621,7 +536,7 @@
 
               <!-- Subtle caption -->
               <p
-                class="mt-5 text-center text-xs font-semibold tracking-widest text-zinc-400 uppercase dark:text-zinc-500"
+                class="mt-5 text-center text-xs font-semibold tracking-widest text-zinc-400 uppercase"
               >
                 Across Africa, the Middle East &amp; Europe
               </p>
@@ -659,7 +574,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Value Connect on X"
-                class="text-zinc-400 hover:text-zinc-800 dark:hover:text-white"
+                class="text-zinc-400 hover:text-zinc-800"
               >
                 <svg
                   class="bi bi-twitter-x inline-block size-5"
@@ -712,7 +627,7 @@
                 </svg>
               </a>
             </nav>
-            <div class="text-zinc-500 dark:text-zinc-400/80">
+            <div class="text-zinc-500">
               © 2026 Value Connect. All Rights Reserved.
             </div>
           </footer>
