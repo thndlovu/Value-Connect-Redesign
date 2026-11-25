@@ -111,7 +111,10 @@
             </a>
             <!-- END Logo -->
           </div>
-          <div class="flex items-center gap-4">
+          <!-- Nav centred on the header from 880px (room to clear the logo) -->
+          <div
+            class="flex items-center gap-4 min-[880px]:pointer-events-none min-[880px]:absolute min-[880px]:inset-0 min-[880px]:justify-center"
+          >
             <!-- Menu Button (small screens) -->
             <button
               x-ref="menuButton"
@@ -142,7 +145,7 @@
             <nav
               id="primary-nav"
               x-bind:class="{ 'is-open': menuOpen }"
-              class="vc-nav flex items-center gap-6"
+              class="vc-nav flex items-center gap-6 min-[880px]:pointer-events-auto"
             >
               <a
                 href="index.html"
