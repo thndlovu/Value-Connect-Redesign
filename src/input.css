@@ -129,38 +129,13 @@
     }
   }
 
-  /* Hero transition: progressive frost beneath an eased colour fade */
-  .vc-hero-frost {
-    backdrop-filter: blur(3px);
-    mask-image: linear-gradient(to bottom, transparent, black 85%);
-  }
-
-  .vc-hero-fade {
-    backdrop-filter: blur(8px);
-    mask-image: linear-gradient(to bottom, transparent, black 65%);
-  }
-
-  /* The hero dissolves into the surface, whatever colour is behind it */
-  .vc-hero-blend {
-    mask-image: linear-gradient(
-      to bottom,
-      black calc(100% - 3rem),
-      rgb(0 0 0 / 0.92) calc(100% - 2.1rem),
-      rgb(0 0 0 / 0.72) calc(100% - 1.35rem),
-      rgb(0 0 0 / 0.35) calc(100% - 0.65rem),
-      transparent
-    );
-  }
-
   @media (prefers-reduced-transparency: reduce) {
     .vc-glass-menu {
       background-color: var(--color-page);
     }
 
     .vc-glass,
-    .vc-glass-menu,
-    .vc-hero-frost,
-    .vc-hero-fade {
+    .vc-glass-menu {
       backdrop-filter: none;
     }
   }
