@@ -284,12 +284,55 @@
             Where Expertise Creates Impact
           </h1>
 
+          <!-- Video: poster first, YouTube player loads only on click -->
           <div
-            class="mt-10 w-full vc-glass-frame overflow-hidden rounded-2xl"
+            x-data="{ playing: false }"
+            class="mt-10 w-full vc-photo-frame overflow-hidden rounded-2xl"
           >
-            <div
-              class="aspect-[16/7] w-full bg-zinc-200"
-            ></div>
+            <div class="relative aspect-[16/7] w-full bg-zinc-200">
+              <template x-if="playing">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/5olDF-vpxNY?autoplay=1&amp;rel=0&amp;playsinline=1"
+                  title="Mercy Masila Achola on Set with John Maxwell | Leadership, Growth &amp; Impact"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                  class="absolute inset-0 h-full w-full"
+                ></iframe>
+              </template>
+              <a
+                x-show="!playing"
+                x-on:click.prevent="playing = true"
+                href="https://www.youtube.com/watch?v=5olDF-vpxNY"
+                aria-label="Play video: Mercy Masila Achola on Set with John Maxwell"
+                class="group absolute inset-0 flex items-center justify-center"
+              >
+                <img
+                  src="assets/about-video-poster.jpg"
+                  alt=""
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                  decoding="async"
+                  class="absolute inset-0 h-full w-full object-cover object-[50%_15%]"
+                />
+                <span
+                  aria-hidden="true"
+                  class="vc-glass-button relative inline-flex size-14 items-center justify-center rounded-full text-[#003366] transition duration-200 ease-out group-hover:scale-105 group-focus-visible:ring-2 group-focus-visible:ring-[#0099CC] group-focus-visible:ring-offset-2 md:size-16"
+                >
+                  <!-- Triangle centroid sits at the centre of the 24x24 box -->
+                  <svg viewBox="0 0 24 24" class="size-6 md:size-7">
+                    <path
+                      d="M8 5 L8 19 L20 12 Z"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </a>
+            </div>
           </div>
 
           <div
